@@ -1,0 +1,43 @@
+@import './color.scss';
+$class-prefix: 'ivu-message';
+.#{$class-prefix} {
+  font-size: 14px;
+  position: fixed;
+  z-index: 1010;
+  width: 100%;
+  top: 16px;
+  left: 0;
+  pointer-events: none;
+  &-notice {
+    padding: 8px;
+    text-align: center;
+    -webkit-transition: height .3s ease-in-out,padding .3s ease-in-out;
+    transition: height .3s ease-in-out,padding .3s ease-in-out;
+    &:first-child {
+      margin-top: -8px;
+    }
+    &-content {
+      display: inline-block;
+      pointer-events: all;
+      padding: 8px 16px;
+      border-radius: 4px;
+      -webkit-box-shadow: 0 1px 6px rgba(0,0,0,.2);
+      box-shadow: 0 1px 6px rgba(0,0,0,.2);
+      background: #fff;
+      position: relative;
+      &-text {
+        display: inline-block;
+      }
+    }
+  }
+  .ivu-icon {
+    margin-right: 4px;
+    font-size: 16px;
+    vertical-align: middle;
+  }
+  &-info, &-loading {
+    .ivu-icon {
+      color: $info-color;
+    }
+  }
+}

@@ -1,0 +1,92 @@
+@import './color.scss';
+$class-prefix: 'ivu-notice';
+.#{$class-prefix} {
+  width: 335px;
+  margin-right: 24px;
+  position: fixed;
+  z-index: 1010;
+  &-notice {
+    margin-bottom: 10px;
+    padding: 16px;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 6px rgba(0,0,0,.2);
+    box-shadow: 0 1px 6px rgba(0,0,0,.2);
+    background: #fff;
+    line-height: 1;
+    position: relative;
+    overflow: hidden;
+    &-close {
+      position: absolute;
+      right: 8px;
+      top: 15px;
+      color: #999;
+      outline: 0;
+      i {
+        font-size: 22px;
+        color: #999;
+        -webkit-transition: color .2s ease;
+        transition: color .2s ease;
+        position: relative;
+        top: -3px;
+      }
+    }
+    &-with-desc > &-close{
+      top: 11px
+    }
+    &-content-with-render {
+      .ivu-notice-desc {
+        display: none;
+      }
+    }
+  }
+  &-custom-content {
+    position: relative;
+  }
+  &-title {
+    font-size: 14px;
+    line-height: 17px;
+    color: $default-bold-color;
+    padding-right: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;  
+  }
+  &-with-desc > &-title{
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  &-desc {
+    font-size: 12px;
+    color: $default-light-color;
+    text-align: justify;
+    line-height: 1.5;
+  }
+  &-icon {
+    position: absolute;
+    top: -2px;
+    font-size: 16px;
+    &-info {
+      color: $info-color;
+    }
+    &-success {
+      color: $success-color;
+    }
+    &-warning {
+      color: $warning-color;
+    }
+    &-error {
+      color: $error-color;
+    }
+  }
+  &-with-desc > &-icon {
+    font-size: 36px;
+    top: -6px;
+  }
+  &-with-desc.#{$class-prefix}-with-icon &-title {
+    margin-left: 51px;
+  }
+  &-content-with-icon {
+    margin-left: 51px;
+  }
+}
+  

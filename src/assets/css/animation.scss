@@ -1,0 +1,283 @@
+/* notice */
+$notice-prefix:'move-notice';
+@mixin move-notice-default {
+	-webkit-animation-duration: .3s;
+	animation-duration: .3s;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	-webkit-animation-play-state: paused;
+	animation-play-state: paused;
+	-webkit-animation-timing-function: ease-in-out;
+	animation-timing-function: ease-in-out
+}
+.#{$notice-prefix}-right-appear,.#{$notice-prefix}-right-enter-active {
+	opacity: 0;
+	@include move-notice-default;
+	-webkit-animation-name: moveNoticeRightIn;
+	animation-name: moveNoticeRightIn;
+	-webkit-animation-play-state: running;
+	animation-play-state: running
+}
+
+.#{$notice-prefix}-right-leave-active {
+	@include move-notice-default;
+	-webkit-animation-name: moveNoticeRightOut;
+	animation-name: moveNoticeRightOut;
+	-webkit-animation-play-state: running;
+	animation-play-state: running
+}
+
+@mixin notice-framesX($num) {
+	-webkit-transform-origin: 0 0;
+	transform-origin: 0 0;
+	-webkit-transform: $num;
+	transform: translateX($num)
+}
+@mixin notice-framesY($num) {
+	-webkit-transform-origin: 0 0;
+	transform-origin: 0 0;
+	-webkit-transform: $num;
+	transform: translateY($num)
+}
+
+@-webkit-keyframes moveNoticeRightIn {
+	0% {
+		opacity: 0;
+		@include notice-framesX($num: 100%);
+	}
+	100% {
+		opacity: 1;
+		@include notice-framesX($num: 0);
+	}
+}
+@keyframes moveNoticeRightIn {
+	0% {
+		opacity: 0;
+		@include notice-framesX($num: 100%);
+	}
+	100% {
+		opacity: 1;
+		@include notice-framesX($num: 0);
+	}
+}
+
+@-webkit-keyframes moveNoticeRightOut {
+	0% {
+		@include notice-framesX($num:0);
+		opacity: 1
+	}
+
+	70% {
+		@include notice-framesX($num:100%);
+		height: auto;
+		padding: 16px;
+		margin-bottom: 10px;
+		opacity: 0
+	}
+
+	100% {
+		@include notice-framesX($num:100%);
+		height: 0;
+		padding: 0;
+		margin-bottom: 0;
+		opacity: 0
+	}
+}
+
+@keyframes moveNoticeRightOut {
+	0% {
+		@include notice-framesX($num:0);
+		opacity: 1
+	}
+
+	70% {
+		@include notice-framesX($num:100%);
+		height: auto;
+		padding: 16px;
+		margin-bottom: 10px;
+		opacity: 0
+	}
+
+	100% {
+		@include notice-framesX($num:100%);
+		height: 0;
+		padding: 0;
+		margin-bottom: 0;
+		opacity: 0
+	}
+}
+
+.#{$notice-prefix}-bottom-appear,.#{$notice-prefix}-bottom-enter-active {
+	opacity: 0;
+	@include move-notice-default;
+	-webkit-animation-name: moveNoticeBottomIn;
+	animation-name: moveNoticeBottomIn;
+	-webkit-animation-play-state: running;
+	animation-play-state: running
+}
+
+.#{$notice-prefix}-bottom-leave-active {
+	@include move-notice-default;
+	-webkit-animation-name: moveNoticeBottomOut;
+	animation-name: moveNoticeBottomOut;
+	-webkit-animation-play-state: running;
+	animation-play-state: running
+}
+
+@-webkit-keyframes moveNoticeBottomIn {
+	0% {
+		@include notice-framesY($num:100%);
+		opacity: 0
+	}
+
+	100% {
+		@include notice-framesY($num:0);
+		opacity: 1
+	}
+}
+
+@keyframes moveNoticeBottomIn {
+	0% {
+		@include notice-framesY($num:100%);
+		opacity: 0
+	}
+
+	100% {
+		@include notice-framesY($num:0);
+		opacity: 1
+	}
+}
+
+@-webkit-keyframes moveNoticeBottomOut {
+	0% {
+		@include notice-framesY($num:0);
+		opacity: 1
+	}
+
+	70% {
+		@include notice-framesY($num:100%);
+		height: auto;
+		padding: 16px;
+		margin-bottom: 10px;
+		opacity: 0
+	}
+
+	100% {
+		@include notice-framesY($num:100%);
+		height: 0;
+		padding: 0;
+		margin-bottom: 0;
+		opacity: 0
+	}
+}
+
+@keyframes moveNoticeBottomOut {
+	0% {
+		@include notice-framesY($num:0);
+		opacity: 1
+	}
+
+	70% {
+		@include notice-framesY($num:100%);
+		height: auto;
+		padding: 16px;
+		margin-bottom: 10px;
+		opacity: 0
+	}
+
+	100% {
+		@include notice-framesY($num:100%);
+		height: 0;
+		padding: 0;
+		margin-bottom: 0;
+		opacity: 0
+	}
+}
+/* move-up */
+$message-prefix: 'move-up';
+.#{$message-prefix}-appear,.#{$message-prefix}-enter-active {
+	opacity: 0;
+	@include move-notice-default;
+	-webkit-animation-name: moveUp;
+	animation-name: moveUp;
+	-webkit-animation-play-state: running;
+	animation-play-state: running
+}
+
+.#{$message-prefix}-leave-active {
+	@include move-notice-default;
+	-webkit-animation-name: moveOut;
+	animation-name: moveOut;
+	-webkit-animation-play-state: running;
+	animation-play-state: running
+}
+
+@-webkit-keyframes moveUp {
+	0% {
+		opacity: 0;
+		@include notice-framesY($num: -100%);
+	}
+	100% {
+		opacity: 1;
+		@include notice-framesY($num: 0);
+	}
+}
+
+@keyframes moveUp {
+	0% {
+		opacity: 0;
+		@include notice-framesY($num: -100%);
+	}
+	100% {
+		opacity: 1;
+		@include notice-framesY($num: 0);
+	}
+}
+
+@-webkit-keyframes moveOut {
+	0% {
+		opacity: 1;
+		@include notice-framesY($num: 0);
+	}
+	100% {
+		opacity: 0;
+		@include notice-framesY($num: -100%);
+	}
+}
+
+@keyframes moveOut {
+	0% {
+		opacity: 1;
+		@include notice-framesY($num: 0);
+	}
+	100% {
+		opacity: 0;
+		@include notice-framesY($num: -100%);
+	}
+}
+/* loop */
+.ivu-load-loop {
+	-webkit-animation: ani-load-loop 1s linear infinite;
+	animation: ani-load-loop 1s linear infinite;
+}
+@-webkit-keyframes ani-load-loop {
+	0% {
+		-webkit-transform: rotate(0);
+		transform: rotate(0)
+	}
+	100% {
+		-webkit-transform: rotate(360deg);
+		transform: rotate(360deg)
+	}
+}
+
+@keyframes ani-load-loop {
+	0% {
+		-webkit-transform: rotate(0);
+		transform: rotate(0)
+	}
+	100% {
+		-webkit-transform: rotate(360deg);
+		transform: rotate(360deg)
+	}
+}
